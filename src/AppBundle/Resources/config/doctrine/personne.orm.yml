@@ -1,0 +1,35 @@
+AppBundle\Entity\personne:
+    type: entity
+    table: null
+    repositoryClass: AppBundle\Repository\personneRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        pseudo:
+            type: string
+            length: 255
+            unique: true
+        pass:
+            type: string
+            length: 255
+        nom:
+            type: string
+            length: 255
+        prenom:
+            type: string
+            length: 255
+        email:
+            type: string
+            length: 255
+            unique: true
+        ville:
+            type: string
+            length: 255
+        numeroTelephone:
+            type: integer
+            column: numero_telephone
+    lifecycleCallbacks: {  }

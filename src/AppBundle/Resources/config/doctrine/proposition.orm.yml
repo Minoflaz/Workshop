@@ -1,0 +1,20 @@
+AppBundle\Entity\proposition:
+    type: entity
+    table: null
+    repositoryClass: AppBundle\Repository\propositionRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        titre:
+            type: string
+            length: 255
+        texte:
+            type: string
+            length: 255
+        date:
+            type: datetime
+    lifecycleCallbacks: {  }

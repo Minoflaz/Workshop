@@ -1,3 +1,25 @@
 app:
     resource: "@AppBundle/Controller/"
     type:     annotation
+index:
+    path: /
+    defaults: {_controller : AppBundle:Default:index}
+
+inscription:
+    path: /newPersonne
+    defaults: {_controller: AppBundle:Create:newPersonne}
+
+login_route:
+    path:     /login
+    defaults: { _controller: AppBundle:Security:login}
+
+login_check:
+    path: /login_check
+    # no controller is bound to this route
+    # as it's handled by the Security system
+
+logout:
+    path: /logout
+
+login:
+    path: /login

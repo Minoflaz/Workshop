@@ -1,5 +1,11 @@
 AppBundle\Entity\proposition:
     type: entity
+    manyToOne:
+            personne:
+                targetEntity: AppBundle\Entity\personne
+                inversedBy: propositions
+                joinColumn:
+                    nullable: false
     table: null
     repositoryClass: AppBundle\Repository\propositionRepository
     id:

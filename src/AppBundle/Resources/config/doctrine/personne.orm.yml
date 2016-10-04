@@ -1,5 +1,25 @@
 AppBundle\Entity\personne:
     type: entity
+    manyToMany:
+        competences:
+          targetEntity: competence
+          joinTable:
+            name: personne_competence
+            joinColumns:
+              personne_id:
+                referencedColumnName: id
+            inverseJoinColumns:
+              competence_id:
+                referencedColumnName: id
+    oneToMany:
+            demandes:
+                targetEntity: AppBundle\Entity\demande
+                mappedBy: personne
+                cascade: [persist]
+            propositions:
+                targetEntity: AppBundle\Entity\proposition
+                mappedBy: personne
+                cascade: [persist]
     table: null
     repositoryClass: AppBundle\Repository\personneRepository
     id:
@@ -9,11 +29,11 @@ AppBundle\Entity\personne:
             generator:
                 strategy: AUTO
     fields:
-        pseudo:
+        username:
             type: string
             length: 255
             unique: true
-        pass:
+        password:
             type: string
             length: 255
         nom:
@@ -32,4 +52,7 @@ AppBundle\Entity\personne:
         numeroTelephone:
             type: integer
             column: numero_telephone
+        role:
+            type: array
+            length: 255
     lifecycleCallbacks: {  }

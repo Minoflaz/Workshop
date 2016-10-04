@@ -27,6 +27,17 @@ class demande
      */
     private $date;
 
+    /**
+     * @var personne
+     */
+    private $personne;
+
+
+    public function __construct()
+    {
+        $this->date = new \DateTime();
+    }
+
 
     /**
      * Get id
@@ -108,5 +119,24 @@ class demande
     public function getDate()
     {
         return $this->date;
+    }
+
+    /**
+     * @param $personne
+     * @return $this
+     */
+    public function setPersonne($personne)
+    {
+        $this->personne = $personne;
+
+        return $this;
+    }
+
+    /**
+     * @return personne
+     */
+    public function getPersonne()
+    {
+        return $this->personne;
     }
 }

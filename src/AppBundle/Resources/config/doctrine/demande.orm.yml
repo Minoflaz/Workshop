@@ -1,5 +1,11 @@
 AppBundle\Entity\demande:
     type: entity
+    manyToOne:
+            personne:
+                targetEntity: AppBundle\Entity\personne
+                inversedBy: demandes
+                joinColumn:
+                    nullable: false
     table: null
     repositoryClass: AppBundle\Repository\demandeRepository
     id:

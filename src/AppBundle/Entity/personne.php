@@ -2,10 +2,14 @@
 
 namespace AppBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\Security\Core\User\UserInterface;
+
+
 /**
  * personne
  */
-class personne
+class personne implements UserInterface, \Serializable
 {
     /**
      * @var int
@@ -15,12 +19,12 @@ class personne
     /**
      * @var string
      */
-    private $pseudo;
+    private $username;
 
     /**
      * @var string
      */
-    private $pass;
+    private $password;
 
     /**
      * @var string
@@ -47,6 +51,43 @@ class personne
      */
     private $numeroTelephone;
 
+    /**
+     * @var array
+     */
+    private $competences;
+
+    /**
+     * @var array
+     */
+    private $propositions;
+
+    /**
+     * @var array
+     */
+    private $demandes;
+
+    /**
+     * @var array
+     */
+    private $role;
+
+
+    public function __construct()
+    {
+        $this->username = "";
+        $this->password = "";
+        $this->nom = "";
+        $this->prenom = "";
+        $this->email = "";
+        $this->ville = "";
+        $this->numeroTelephone = 0;
+
+        $this->competences = new ArrayCollection();
+        $this->propositions = new ArrayCollection();
+        $this->demandes = new ArrayCollection();
+
+        $this->role = array('ROLE_USER');
+    }
 
     /**
      * Get id
@@ -58,52 +99,75 @@ class personne
         return $this->id;
     }
 
-    /**
-     * Set pseudo
-     *
-     * @param string $pseudo
-     *
-     * @return personne
-     */
-    public function setPseudo($pseudo)
-    {
-        $this->pseudo = $pseudo;
+    public function addCompetence($competence){
+
+        $this->competences[] = $competence;
+
+        return $this;
+    }
+
+    public function addProposition($proposition){
+
+        $proposition->setPersonne($this);
+        $this->propositions[] = $proposition;
+
+        return $this;
+    }
+
+    public function addDemande($demande){
+
+        $demande->setPersonne($demande);
+        $this->demandes[] = $demande;
 
         return $this;
     }
 
     /**
-     * Get pseudo
+     * Set pseudo
+     *
+     * @param string $username
+     *
+     * @return personne
+     */
+    public function setUsername($username)
+    {
+        $this->username = $username;
+
+        return $this;
+    }
+
+    /**
+     * Get username
      *
      * @return string
      */
-    public function getPseudo()
+    public function getUsername()
     {
-        return $this->pseudo;
+        return $this->username;
     }
 
     /**
      * Set pass
      *
-     * @param string $pass
+     * @param string $password
      *
      * @return personne
      */
-    public function setPass($pass)
+    public function setPassword($password)
     {
-        $this->pass = $pass;
+        $this->password = $password;
 
         return $this;
     }
 
     /**
-     * Get pass
+     * Get password
      *
      * @return string
      */
-    public function getPass()
+    public function getPassword()
     {
-        return $this->pass;
+        return $this->password;
     }
 
     /**
@@ -225,5 +289,50 @@ class personne
     public function getNumeroTelephone()
     {
         return $this->numeroTelephone;
+    }
+
+    public function setRoles($roles) {
+
+        $this->role = $roles;
+        return $this;
+    }
+
+    public function getRoles()
+    {
+        return $this->role;
+    }
+
+    public function getSalt()
+    {
+        // you *may* need a real salt depending on your encoder
+        // see section on salt below
+        return null;
+    }
+
+    public function eraseCredentials()
+    {
+    }
+
+
+    public function serialize()
+    {
+        return serialize(array(
+            $this->id,
+            $this->username,
+            $this->password,
+            // see section on salt below
+            // $this->salt,
+        ));
+    }
+
+    public function unserialize($serialized)
+    {
+        list (
+            $this->id,
+            $this->username,
+            $this->password,
+            // see section on salt below
+            // $this->salt
+            ) = unserialize($serialized);
     }
 }

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     {% block stylesheets %}
@@ -22,11 +23,12 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a href="#" class="navbar-left"><img src="../Images/logoo.png"></a>
+            <a href="{{ path('index') }}" class="navbar-left"><img src="../Images/logoo.png"></a>
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
-            <ul id="navx" class="nav navbar-nav navbar local">
-                <li><a href="{{ path('membre') }}"><span class="glyphicon glyphicon-log-in"></span> Revenir a mon espace membre</a></li>
+            <ul id="navxx" class="nav navbar-nav navbar local">
+                <li><a href="{{ path('showDemandes') }}"><span class="glyphicon glyphicon-log-in"></span> Demandes</a></li>
+                <li><a href="{{ path('membre') }}"><span class="glyphicon glyphicon-pencil"></span> Mon espace</a></li>
             </ul>
 
             <ul class= "nav navbar-nav navbar-right" id="myNavbar">
@@ -35,10 +37,10 @@
                         <span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li><a href="{{ path('profil', {"idPersonne": user.id}) }}"><span class="glyphicon glyphicon-user"></span>Profil</a></li>
-                        <li><a href="{{ path('logout') }}"><span class="glyphicon glyphicon-log-out"></span> Déconnexion</a>
+                        <li><a href="{{ path('logout')}}"><span class="glyphicon glyphicon-log-out"></span> Déconnexion</a>
                     </ul>
                 </li>
-                ></li>
+                </li>
             </ul>
 
         </div>
@@ -46,14 +48,43 @@
 </nav>
 
 <div id="myPage" class="jumbotron text-center bg-1">
-    <h1>Profil de {{ personne.username }}</h1>
-    <img src="../Images/profil2.png" alt="Membre">
+    <h1>{{ demande.titre }}</h1>
+
 </div>
 
 
-<div id="offres" class="container-fluid text-center bg-1 ">
-    </br><h2>Liste des compétences</h2></br>
 
+
+<div id="offres" class="container-fluid text-center bg-1">
+    </br>
+    <div class="row">
+
+        <div class="col-sm-11">
+            <h2 id="titdem">Liste des propositions</h2></br>
+
+            <table class='table table-striped text-center'>
+                <tr><td><strong>Titre de la proposition</strong></td><td><strong>Description de la proposition</strong></td><td><strong>Pseudo du proposeur</strong><td><strong>Actions</strong></td></tr>
+
+                {% if propositions != null %}
+
+                    {% for proposition in propositions %}
+
+                        <tr><td>{{ proposition.titre }}</td>
+                            <td>{{ proposition.texte[:30] }}...</td>
+                            <td>{{ proposition.personne.ville }}</td>
+
+                            <td><button id="btdem" type="button" class="btn btn-primary btn-circle" data-toggle="tooltip" data-placement="top" title="Accèder à cette proposition" onclick="location.href = '{{ path('showProposition', {"idProposition": proposition.id}) }}'"><i class="glyphicon glyphicon-eye-open"></i></button></td>
+
+                        </tr>
+
+                    {% endfor %}
+
+                {% endif %}
+
+
+            </table>
+        </div>
+    </div>
 </div>
 
 

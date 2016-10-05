@@ -26,9 +26,7 @@
             <a href="#" class="navbar-left"><img src="../Images/logoo.png"></a>
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
-            <ul id="navxx"class="nav navbar-nav navbar-locale">
-                <li><a href="#traitement">Accès à la demande</a></li>
-            </ul>
+
 
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="{{ path('membre') }}"><span class="glyphicon glyphicon-log-in"></span> Retour espace membre</a></li>
@@ -81,12 +79,29 @@
                 <form role="form" method="post">
                     <div class="form-group">
 
-                    <textarea class="form-control" name="texte" rows="10" id="demande" placeholder="Exemple de demande !!!!!">
-                    </textarea>
+                        {{ form_start(form) }}
+                        {{ form_errors(form) }}
+
+                        <label class="control-label col-sm-2" for="titre">Titre</label>
+                        <div class="col-sm-4">
+                            {{ form_widget(form.titre,{'attr': {
+                                'class': 'form-control',
+                                'placeholder': 'Titre',
+                                }}) }}
+                        </div>
+
+                        {{ form_widget(form.texte,{'attr': {
+                            'class': 'form-control',
+                            'placeholder': 'Rédigez votre proposition',
+                            'rows': "10",
+                        }}) }}
+
 
                     </div>
-                    <button type="submit" name="proposer" class="btn btn-default">Proposer</button>
+                    <button type="submit" name="form[save]" class="btn btn-default">Proposer</button>
                     <button type="reset" name="annuler" class="btn btn-default">Annuler</button></br>
+                    {% do form.save.setRendered %}
+                    {{ form_end(form) }}
                 </form>
             </div>
         </div>

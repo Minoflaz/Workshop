@@ -93,6 +93,50 @@
       border-radius: 0;
       transition: .2s;
   }
+  #btlist
+  {
+    width: 30px;
+  height: 30px;
+  color: black;
+  background-color: white;
+  text-align: center;
+  padding: 6px 0;
+  font-size: 12px;
+  line-height: 1.428571429;
+  border-radius: 15px;
+  }
+
+  .panel {
+      border: 1px solid #696969; 
+      border-radius:0 !important;
+      transition: box-shadow 0.5s;
+  }
+  .panel:hover {
+      box-shadow: 5px 0px 40px rgba(0,0,0, .2);
+    }
+ .panel-heading {
+      color: #fff !important;
+      background-color: #2d2d30 !important;
+      padding: 25px;
+      border-bottom: 1px solid transparent;
+      border-top-left-radius: 0px;
+      border-top-right-radius: 0px;
+      border-bottom-left-radius: 0px;
+      border-bottom-right-radius: 0px;
+  }
+
+  #btdem
+  {
+    width: 30px;
+  height: 30px;
+  color: white;
+  background-color: black;
+  text-align: center;
+  padding: 6px 0;
+  font-size: 12px;
+  line-height: 1.428571429;
+  border-radius: 15px;
+  }
   .btn:hover, .btn:focus {
       border: 1px solid #333;
       background-color: #fff;

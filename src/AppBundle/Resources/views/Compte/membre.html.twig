@@ -36,11 +36,11 @@
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">Plus
                         <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="{{ path('profil') }}"><span class="glyphicon glyphicon-user"></span>Profil</a></li>
+                        <li><a href="{{ path('profil', {"idPersonne": user.id}) }}"><span class="glyphicon glyphicon-user"></span>Profil</a></li>
                         <li><a href="{{ path('logout')}}"><span class="glyphicon glyphicon-log-out"></span> Déconnexion</a>
                     </ul>
                 </li>
-                ></li>
+                </li>
             </ul>
 
         </div>
@@ -58,17 +58,27 @@
         <div class="col-sm-11">
             <h2 id="titdem">Liste de mes demandes</h2></br>
             <table class='table table-striped text-center'>
-                <tr><td><strong> Titre de la demande </strong></td><td><strong>Description de la demande</strong></td><td><strong> Date demande</strong></td><td>Réponses</td></tr>
+                <tr><td><strong> Titre de la demande </strong></td><td><strong>Description de la demande</strong></td><td><strong> Ville</strong></td><td>Réponses</td></tr>
 
             {% if demandes != null %}
 
                 {% for demande in demandes %}
 
-                    {% if demande%}
+                    {% if demande.propositions is empty %}
+
+                        <tr><td><a href="{{ path('showDemande', {"idDemande": demande.id}) }}">{{ demande.titre }}</a></td>
+                            <td>{{ demande.texte[:30] }}...</td>
+                            <td>{{ demande.personne.ville }}</td>
+                            <td>0</td>
+                        </tr>
 
                     {% else %}
 
-                        <tr><td><a href="{{ path('showDemande', {"id": demande.id}) }}">{{ demande.titre }}</a></td><td>{{ demande.texte[:30] }}...</td><td>date</td><td>0</td></tr>
+                        <tr><td><a href="{{ path('showDemande', {"idDemande": demande.id}) }}">{{ demande.titre }}</a></td>
+                            <td>{{ demande.texte[:30] }}...</td>
+                            <td>{{ demande.personne.ville }}</td>
+                            <td><a href="{{ path('showPropositions', {"idDemande": demande.id}) }}">{{ demande.propositions|length }}</a></td>
+                        </tr>
 
                     {% endif %}
 
@@ -93,30 +103,35 @@
 
         <div class="col-sm-11">
             <h2 id="titdem">Liste de mes propositions</h2></br>
-        </div>
 
-        <div class="col-sm-1">
-            <!--  <button id="btoff" type="button" class="btn btn-primary btn-circle btn-lg" href="#" data-toggle="tooltip" data-placement="top" title="Ajouter une nouvelle offre"><i class="glyphicon glyphicon-plus"></i></button>  -->
-        </div>
 
+
+
+
+
+        <table class='table table-striped text-center'>
+            <tr><td><strong>Titre de la demande</strong></td><td><strong>Pseudo du demandeur</strong></td><td><strong>Ville</strong></td><td><strong>Statut</strong></td></tr>
+
+            {% if propositions != null %}
+
+                {% for proposition in propositions %}
+
+                    <tr><td><a href="{{ path('showProposition', {"id": proposition.id}) }}">{{ proposition.demande.titre }}</a></td>
+                        <td><a href="{{ path('profil', {"idPersonne": proposition.demande.personne.id}) }}">{{ proposition.demande.personne.username }}</a></td>
+                        <td>{{ proposition.demande.personne.ville }}</td>
+
+                        <td>attente</td>
+
+                    </tr>
+
+                {% endfor %}
+
+            {% endif %}
+
+
+        </table>
+        </div>
     </div>
-
-    <table class='table table-striped text-center'>
-        <tr><td><strong> Titre de la demande </strong></td><td><strong>Pseudo du demandeur</strong></td><td><strong> Titre de la proposition</strong></td><td><strong>Statut</strong></td></tr>
-
-        {% if propositions != null %}
-
-            {% for proposition in propositions %}
-
-                <tr><td><a href="{{ path('showProposition', {"id": proposition.id}) }}">{{ proposition.titre }}</a></td><td>{{ proposition.texte[:30] }}...</td><td>date</td><td>attente</td></tr>
-
-            {% endfor %}
-
-        {% endif %}
-
-
-    </table>
-
 </div>
 
 

@@ -170,5 +170,22 @@ class proposition
         $this->demande = $demande;
     }
 
+    /**
+     * @return boolean
+     */
+    public function isStatut()
+    {
+        return $this->statut;
+    }
+
+    /**
+     * @param boolean $statut
+     */
+    public function setStatut($statut)
+    {
+        $this->statut = $statut;
+    }
+
+
 
 }

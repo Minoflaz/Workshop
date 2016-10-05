@@ -79,7 +79,7 @@ class CreateController extends Controller {
 
         $form = $this->createFormBuilder($proposition)
             ->add('titre',TextType::class)
-            ->add('text',TextareaType::class, array('attr' => array('cols' => '75', 'rows' => '50')))
+            ->add('texte',TextareaType::class)
             ->add('save',SubmitType::class)
             ->getForm();
 
@@ -88,6 +88,7 @@ class CreateController extends Controller {
         if($form->isValid()) {
 
             $proposition->setDemande($demande);
+            $proposition->setPersonne($this->getUser());
             $proposition->getDemande()->addProposition($proposition);
             $em = $this->getDoctrine()->getManager();
             $em->persist($proposition);

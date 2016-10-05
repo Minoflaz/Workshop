@@ -5,6 +5,7 @@ namespace AppBundle\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use AppBundle\Model\FakeBoolean;
 
 class DefaultController extends Controller
 {
@@ -47,35 +48,36 @@ class DefaultController extends Controller
         ));
     }
 
-    public function profilAction(Request $request) {
+    public function profilAction(Request $request,$idPersonne) {
 
         if($this->getUser() == null) {
             return $this->redirectToRoute('login');
         }
 
-        $demandes = $this->getDoctrine()->getRepository('AppBundle:demande')->findAll();
 
-        $competences = $this->getDoctrine()->getRepository('AppBundle:competence')->findAll();
 
-        $personnes = $this->getDoctrine()->getRepository('AppBundle:personne')->findAll();
+
+
+        $personne = $this->getDoctrine()->getRepository('AppBundle:personne')->findOneById($idPersonne);
 
         return $this->render('AppBundle:Compte:profil.html.twig',array(
             'user'=> $this->getUser(),
-            'personnes'=> $personnes,
-            'demandes'=> $demandes,
-            'competences' => $competences,
+            'personne'=> $personne,
         ));
     }
 
 
-    public function showDemande(Request $request) {
+    public function showDemandeAction(Request $request,$idDemande) {
+
+        $demande = $this->getDoctrine()->getRepository('AppBundle:demande')->findOneById($idDemande);
 
         return $this->render('AppBundle:Demande:showDemande.html.twig',array(
             'user'=> $this->getUser(),
+            'demande'=> $demande,
         ));
     }
 
-    public function showDemandes(Request $request) {
+    public function showDemandesAction(Request $request) {
 
         $demandes = $this->getDoctrine()->getRepository('AppBundle:demande')->findAll();
 
@@ -83,6 +85,54 @@ class DefaultController extends Controller
             'user'=> $this->getUser(),
             'demandes'=> $demandes,
         ));
+    }
+
+
+    public function  showPropositionsAction(Request $request,$idDemande) {
+
+        if($this->getUser() == null) {
+            return $this->redirectToRoute('login');
+        }
+
+        $demande = $this->getDoctrine()->getRepository('AppBundle:demande')->findOneById($idDemande);
+
+        $propositions = $demande->getPropositions();
+
+        return $this->render('AppBundle:Proposition:showPropositions.html.twig',array(
+            'user'=> $this->getUser(),
+            'demande'=> $demande,
+            'propositions'=> $propositions,
+        ));
+
+    }
+
+    public function showPropositionAction(Request $request,$idProposition) {
+
+        if($this->getUser() == null) {
+            return $this->redirectToRoute('login');
+        }
+
+
+        $proposition = $this->getDoctrine()->getRepository('AppBundle:proposition')->findOneById($idProposition);
+
+        return $this->render('AppBundle:Proposition:showProposition.html.twig',array(
+            'user'=> $this->getUser(),
+            'proposition'=> $proposition,
+        ));
+    }
+
+    public function validerPropositionAction(Request $request,$idProposition) {
+
+        if($this->getUser() == null) {
+            return $this->redirectToRoute('login');
+        }
+
+        $proposition = $this->getDoctrine()->getRepository('AppBundle:proposition')->findOneById($idProposition);
+
+        $proposition->setStatut(true);
+
+        return $this->redirectToRoute('membre');
+
     }
 
 }

@@ -14,15 +14,19 @@ membre:
     defaults: {_controller: AppBundle:Default:membre}
 
 profil:
-    path: /profil
+    path: /profil/{idPersonne}
     defaults: {_controller: AppBundle:Default:profil}
+
+showPropositions:
+    path: /showPropositions/{idDemande}
+    defaults: {_controller: AppBundle:Default:showPropositions}
 
 newDemande:
     path: /ajoutDemande
     defaults: {_controller: AppBundle:Create:newDemande}
 
 showDemande:
-    path: /showDemande
+    path: /showDemande/{idDemande}
     defaults: {_controller: AppBundle:Default:showDemande}
 
 showDemandes:
@@ -34,8 +38,12 @@ showDemandeRepondre:
     defaults: {_controller: AppBundle:Create:newProposition}
 
 showProposition:
-    path: /showProposition
+    path: /showProposition/{idProposition}
     defaults: {_controller: AppBundle:Default:showProposition}
+
+validerProposition:
+    path: /validerProposition/{idProposition}
+    defaults: {_controller: AppBundle:Default:validerProposition}
 
 login_route:
     path:     /login

@@ -6,6 +6,12 @@ AppBundle\Entity\proposition:
                 inversedBy: propositions
                 joinColumn:
                     nullable: false
+            demande:
+                targetEntity: AppBundle\Entity\demande
+                inversedBy: propositions
+                joinColumn:
+                    nullable: false
+
     table: null
     repositoryClass: AppBundle\Repository\propositionRepository
     id:
@@ -23,4 +29,6 @@ AppBundle\Entity\proposition:
             length: 255
         date:
             type: datetime
+        statut:
+            type: boolean
     lifecycleCallbacks: {  }

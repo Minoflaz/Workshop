@@ -17,6 +17,11 @@
       color: #696969;
       font-size: 50px;
   }
+  #navxxx
+    {
+      display: block;
+      margin-left: 400px;
+    }
   #navxx
     {
       display: block;
@@ -161,6 +166,20 @@
   textarea {
       resize: none;
   }
+
+  .btn-circle.btn-lg {
+  width: 50px;
+  height: 50px;
+  padding: 10px 16px;
+  font-size: 18px;
+  line-height: 1.33;
+  border-radius: 25px;
+}
+
+#titdem
+{
+  margin-left: 100px;
+}
 
   .popover-content {
     background-color: #808080;

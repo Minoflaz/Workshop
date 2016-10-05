@@ -2,6 +2,8 @@
 
 namespace AppBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+
 /**
  * demande
  */
@@ -32,9 +34,15 @@ class demande
      */
     private $personne;
 
+    /**
+     * @var ArrayCollection
+     */
+    private $propositions;
+
 
     public function __construct()
     {
+        $this->propositions = new ArrayCollection();
         $this->date = new \DateTime();
     }
 
@@ -138,5 +146,28 @@ class demande
     public function getPersonne()
     {
         return $this->personne;
+    }
+
+    /**
+     * @return ArrayCollection
+     */
+    public function getPropositions()
+    {
+        return $this->propositions;
+    }
+
+    /**
+     * @param ArrayCollection $propositions
+     */
+    public function setPropositions($propositions)
+    {
+        $this->propositions = $propositions;
+    }
+
+    public function addProposition($proposition) {
+
+        $this->propositions[] = $proposition;
+
+        return $this;
     }
 }

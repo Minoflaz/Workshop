@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     {% block stylesheets %}
@@ -26,55 +25,42 @@
             <a href="#" class="navbar-left"><img src="../Images/logoo.png"></a>
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="{{ path('login') }}"><span class="glyphicon glyphicon-log-in"></span> Connexion</a></li>
-                <li><a href="{{ path('inscription') }}"><span class="glyphicon glyphicon-pencil"></span> Inscription</a></li>
+            <ul id="navx" class="nav navbar-nav navbar local">
+                <li><a href="#infos"><span class="glyphicon glyphicon-log-in"></span> Informations personnelles</a></li>
+                <li><a href="#competences"><span class="glyphicon glyphicon-pencil"></span> Liste des compétences </a></li>
             </ul>
+
+            <ul class= "nav navbar-nav navbar-right" id="myNavbar">
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Plus
+                        <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="{{ path('profil') }}"><span class="glyphicon glyphicon-user"></span>Profil</a></li>
+                        <li><a href="{{ path('logout') }}"><span class="glyphicon glyphicon-log-out"></span> Déconnexion</a>
+                    </ul>
+                </li>
+                ></li>
+            </ul>
+
         </div>
     </div>
 </nav>
 
 <div id="myPage" class="jumbotron text-center bg-1">
-    <h1>Espace Authentification</h1>
+    <h1>Profil personnel</h1>
+    <img src="../Images/profil2.png" alt="Membre">
 </div>
 
-<div id="connexion" class="container-fluid">
-    <div class="row">
-        </br></br>
-        <div class="col-sm-4">
-            <span class="glyphicon glyphicon-user logo slideanim"></span>
-        </div>
+<div id="demandes" class="container-fluid text-center">
+    <h2>Informations personnelles</h2></br>
 
-        <div class="col-sm-8">
-            </br><h2>Formulaire de Connexion</h2></br></br>
-            <form role="form" method="post" action="{{ path('login_check') }}">
-                <div class="form-group">
-                    <label for="username">Pseudo :</label>
-                    <input type="text" name="_username"class="form-control" id="email" placeholder="Entrez votre pseudo" >
-                </div>
-                <div class="form-group">
-                    <label for="password">Mot de passe :</label>
-                    <input type="password" name="_password" class="form-control" id="pwd" placeholder="Entrez votre Mot de passe">
-                </div></br>
-                <div class="checkbox">
-                    <label><input type="checkbox"> Se souvenir de moi</label>
-                </div></br>
-
-                <input type="hidden" name="_target_path" value="/membre" />
-
-                <button type="submit" name="connexion" value="Connexion" class="btn btn-default">Connexion</button>
-                <button type="reset" name="annuler" class="btn btn-default">Annuler</button>
-
-
-            </form>
-        </div>
-    </div>
-    </br></br>
 </div>
 
 
+<div id="offres" class="container-fluid text-center bg-1 ">
+    </br><h2>Liste des compétences</h2></br>
 
-
+</div>
 
 
 <!-- Footer -->

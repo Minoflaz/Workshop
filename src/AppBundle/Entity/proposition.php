@@ -2,6 +2,8 @@
 
 namespace AppBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+
 /**
  * proposition
  */
@@ -28,13 +30,25 @@ class proposition
     private $date;
 
     /**
+     * @var boolean
+     */
+    private $statut;
+
+    /**
      * @var personne
      */
     private $personne;
 
+    /**
+     * @var demande
+     */
+    private $demande;
+
 
     public function __construct()
     {
+        $this->statut = false;
+        $this->demande = null;
         $this->date = new \DateTime();
     }
 
@@ -139,4 +153,22 @@ class proposition
     {
         return $this->personne;
     }
+
+    /**
+     * @return demande
+     */
+    public function getDemande()
+    {
+        return $this->demande;
+    }
+
+    /**
+     * @param demande $demande
+     */
+    public function setDemande($demande)
+    {
+        $this->demande = $demande;
+    }
+
+
 }

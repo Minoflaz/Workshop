@@ -90,6 +90,54 @@ class personne implements UserInterface, \Serializable
     }
 
     /**
+     * @return array
+     */
+    public function getCompetences()
+    {
+        return $this->competences;
+    }
+
+    /**
+     * @param array $competences
+     */
+    public function setCompetences($competences)
+    {
+        $this->competences = $competences;
+    }
+
+    /**
+     * @return array
+     */
+    public function getPropositions()
+    {
+        return $this->propositions;
+    }
+
+    /**
+     * @param array $propositions
+     */
+    public function setPropositions($propositions)
+    {
+        $this->propositions = $propositions;
+    }
+
+    /**
+     * @return array
+     */
+    public function getDemandes()
+    {
+        return $this->demandes;
+    }
+
+    /**
+     * @param array $demandes
+     */
+    public function setDemandes($demandes)
+    {
+        $this->demandes = $demandes;
+    }
+
+    /**
      * Get id
      *
      * @return int

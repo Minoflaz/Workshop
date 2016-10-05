@@ -6,6 +6,11 @@ AppBundle\Entity\demande:
                 inversedBy: demandes
                 joinColumn:
                     nullable: false
+    oneToMany:
+            propositions:
+                targetEntity: AppBundle\Entity\proposition
+                mappedBy: demande
+                cascade: [persist]
     table: null
     repositoryClass: AppBundle\Repository\demandeRepository
     id:

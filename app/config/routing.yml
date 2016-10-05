@@ -9,6 +9,34 @@ inscription:
     path: /newPersonne
     defaults: {_controller: AppBundle:Create:newPersonne}
 
+membre:
+    path: /membre
+    defaults: {_controller: AppBundle:Default:membre}
+
+profil:
+    path: /profil
+    defaults: {_controller: AppBundle:Default:profil}
+
+newDemande:
+    path: /ajoutDemande
+    defaults: {_controller: AppBundle:Create:newDemande}
+
+showDemande:
+    path: /showDemande
+    defaults: {_controller: AppBundle:Default:showDemande}
+
+showDemandes:
+    path: /showDemandes
+    defaults: {_controller: AppBundle:Default:showDemandes}
+
+showDemandeRepondre:
+    path: /showDemandeRepondre/{idDemande}
+    defaults: {_controller: AppBundle:Create:newProposition}
+
+showProposition:
+    path: /showProposition
+    defaults: {_controller: AppBundle:Default:showProposition}
+
 login_route:
     path:     /login
     defaults: { _controller: AppBundle:Security:login}

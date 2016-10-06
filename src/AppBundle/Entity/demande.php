@@ -148,6 +148,16 @@ class demande
         return $this->personne;
     }
 
+    public function isCompleted() {
+
+        foreach($this->propositions as $proposition) {
+            if($proposition->isStatut())
+                return true;
+        }
+
+        return false;
+    }
+
     /**
      * @return ArrayCollection
      */

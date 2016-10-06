@@ -17,7 +17,12 @@
       color: #696969;
       font-size: 50px;
   }
-  #navxxx
+  #navxxxx
+    {
+      display: block;
+      margin-left: 340px;
+    }
+     #navxxx
     {
       display: block;
       margin-left: 400px;
@@ -106,6 +111,18 @@
   border-radius: 15px;
   }
 
+  #btcomp
+  {
+    width: 50px;
+  height: 50px;
+  padding: 10px 16px;
+  font-size: 18px;
+  line-height: 1.33;
+  border-radius: 25px;
+  color: black;
+  background-color: white;
+  }
+
   .panel {
       border: 1px solid #696969; 
       border-radius:0 !important;
@@ -115,7 +132,7 @@
       box-shadow: 5px 0px 40px rgba(0,0,0, .2);
     }
  .panel-heading {
-      color: #fff !important;
+  
       background-color: #2d2d30 !important;
       padding: 25px;
       border-bottom: 1px solid transparent;

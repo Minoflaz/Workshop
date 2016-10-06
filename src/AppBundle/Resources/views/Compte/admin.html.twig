@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% block stylesheets %}
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="Style.css">
+    {% endblock %}
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+
+</head>
+
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="50">
+
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid" id="nav">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="{{ path('index') }}" class="navbar-left"><img src="../Images/logoo.png"></a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul id="navxxxx" class="nav navbar-nav navbar local">
+                <li><a href="#Personnes"><span class="glyphicon glyphicon-log-in"></span>Personnes | </a></li>
+                <li><a href="#demandes"><span class="glyphicon glyphicon-log-in"></span>Demandes | </a></li>
+                <li><a href="#offres"><span class="glyphicon glyphicon-pencil"></span>Propositions</a></li>
+            </ul>
+
+            <ul class= "nav navbar-nav navbar-right" id="myNavbar">
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Plus
+                        <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="Controleur_Membre.php?deconnexion=1"><span class="glyphicon glyphicon-log-out"></span> Déconnexion</a>
+                    </ul>
+                </li>
+                ></li>
+            </ul>
+
+        </div>
+    </div>
+</nav>
+
+<div id="myPage" class="jumbotron text-center bg-1">
+    <h1>Espace Admin</h1>
+    <img src="../Images/Admin.png" alt="Membre">
+</div>
+
+<div id="personnes" class="container-fluid text-center">
+    <div class="row">
+
+        <div class="col-sm-11">
+            <h2 id="titdem">Liste des personnes</h2></br>
+        </div>
+
+
+
+        <div class="col-sm-1">
+        </div>
+
+    </div>
+
+    <table class='table table-striped text-center'>
+        <tr>
+            <td><strong> Pseudo </strong></td><td><strong>Nom</strong></td><td><strong> Prenom</strong>
+            </td><td><strong> Email </strong></td></td><td><strong> Ville </strong></td>
+            <td><strong> Télephone </strong></td><td>Actions possibles</td>
+        </tr>
+
+        <tr>
+            <td>Lolo95</td><td> Cujas</td><td>Laurent</td>
+            <td>lolo.95@gmail.com</td><td>Paris</td><td>0653246798</td>
+            <td><button id="btdem" type="button" class="btn btn-primary btn-circle" data-toggle="tooltip" data-placement="top" title="Accèder à cette demande" onclick="location.href = 'Controleur_AffichageDemande.php'"><i class="glyphicon glyphicon-eye-open"></i></button>
+                <button id="btdem" type="button" class="btn btn-primary btn-circle" data-toggle="tooltip" data-placement="top" title="Accèder à cette demande" onclick="location.href = 'Controleur_AffichageDemande.php'"><i class="glyphicon glyphicon-trash"></i></button>
+            </td>
+        </tr>
+    </table>
+</div>
+
+
+<div id="demandes" class="container-fluid text-center bg-1">
+    <br>
+    <div class="row">
+
+        <div class="col-sm-11">
+            <h2 id="titdem">Liste des demandes</h2></br>
+        </div>
+
+        <div class="col-sm-1">
+
+        </div>
+
+    </div>
+
+    <table class='table table-striped text-center'>
+        <tr>
+            <td><strong> Titre de la demande </strong></td><td><strong>Description de la demande</strong></td><td><strong> Date demande</strong></td><td>Actions possibles</td>
+        </tr>
+
+        <tr>
+            <td>Install et config os</td><td> Bonjour, je chercher une ...</td><td>Le 27/09/16</td>
+            <td><button id="btlist" type="button" class="btn btn-primary btn-circle" data-toggle="tooltip" data-placement="top" title="Accèder à cette demande" onclick="location.href = 'Controleur_AffichageDemande.php'"><i class="glyphicon glyphicon-eye-open"></i></button>
+                <button id="btlist" type="button" class="btn btn-primary btn-circle" data-toggle="tooltip" data-placement="top" title="Accèder à cette demande" onclick="location.href = 'Controleur_AffichageDemande.php'"><i class="glyphicon glyphicon-trash"></i></button>
+            </td>
+        </tr>
+    </table>
+</div>
+
+
+<div id="offres" class="container-fluid text-center ">
+    </br>
+    <div class="row">
+
+        <div class="col-sm-11">
+            <h2 id="titdem">Liste des propositions</h2></br>
+        </div>
+
+        <div class="col-sm-1">
+            <!--  <button id="btoff" type="button" class="btn btn-primary btn-circle btn-lg" href="#" data-toggle="tooltip" data-placement="top" title="Ajouter une nouvelle offre"><i class="glyphicon glyphicon-plus"></i></button>  -->
+        </div>
+
+    </div>
+
+    <table class='table table-striped text-center'>
+        <tr>
+            <td><strong> Titre de la demande </strong></td><td><strong>Pseudo de l'intervenant</strong></td><td><strong> Titre de la proposition</strong></td><td><strong>Actions possibles</strong></td>
+        </tr>
+
+        <tr>
+            <td>Install et config os</td><td>ITveteran</td><td>possibilité installation</td>
+            <td><button id="btdem" type="button" class="btn btn-primary btn-circle" data-toggle="tooltip" data-placement="top" title="Accèder à cette proposition" onclick="location.href = 'Controleur_AffichageProposition.php'"><i class="glyphicon glyphicon-eye-open"></i></button>
+                <button id="btdem" type="button" class="btn btn-primary btn-circle" data-toggle="tooltip" data-placement="top" title="Accèder à cette demande" onclick="location.href = 'Controleur_AffichageDemande.php'"><i class="glyphicon glyphicon-trash"></i></button>
+            </td>
+        </tr>
+    </table>
+
+</div>
+
+
+
+
+<!-- Footer -->
+<footer class="text-center">
+    <a class="up-arrow" href="#myPage" data-toggle="tooltip" title="TO TOP">
+        <span class="glyphicon glyphicon-chevron-up"></span>
+    </a><br><br>
+</footer>
+
+
+
+</body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="Styles/Style.js"></script>
+
+</html>
+

@@ -71,6 +71,13 @@
                             <td>{{ demande.personne.ville }}</td>
                             <td>0</td>
                         </tr>
+                    {% elseif demande.isCompleted() %}
+
+                        <tr><td><a href="{{ path('showDemande', {"idDemande": demande.id}) }}">{{ demande.titre }}</a></td>
+                            <td>{{ demande.texte[:30] }}...</td>
+                            <td>{{ demande.personne.ville }}</td>
+                            <td>Terminée</td>
+                        </tr>
 
                     {% else %}
 

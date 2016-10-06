@@ -1,5 +1,26 @@
 
 $(document).ready(function(){
+
+    $("#sel1").change(function() {
+      if ($(this).val() == "Aucun") {
+        $("#autre_choix").show();
+      } else {
+        $("#autre_choix").hide();
+      }
+      //$("ici").append(txt);
+    });
+
+    function myFunction() 
+    {
+      console.log("hghghghg");
+      var txt = "<div class='form-group'><div class='row'><div class='col-sm-2'></div><div class='col-sm-3'><label for='titre'>Intitulé de la compétence</label></div><div class='col-sm-6'><input type='text' name='id' class='form-control' id='monChamp'></div></div></div>"
+      $("ici  ").append(txt); 
+    };
+
+    /*document.getElementById("myButton").onclick = function () {
+        location.href = "www.yoursite.com";
+    };*/
+
   // Initialize Tooltip
   $('[data-toggle="tooltip"]').tooltip();
 

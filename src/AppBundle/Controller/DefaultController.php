@@ -177,7 +177,7 @@ class DefaultController extends Controller
         $propositions = $this->getDoctrine()->getRepository('AppBundle:proposition')->findAll();
 
 
-        return $this->render('AppBundle:Proposition:showProposition.html.twig',array(
+        return $this->render('AppBundle:Compte:admin.html.twig',array(
             'user'=> $this->getUser(),
             'personnes'=> $personnes,
             'propositions'=> $propositions,

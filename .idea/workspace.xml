@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0fa9c60c-b79c-4903-ab85-e95cc6007a25" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Resources/views/Demande/showDemandeRepondre.html.twig" afterPath="$PROJECT_DIR$/src/AppBundle/Resources/views/Demande/showDemandeRepondre.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Resources/views/Compte/membre.html.twig" afterPath="$PROJECT_DIR$/src/AppBundle/Resources/views/Compte/membre.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Resources/views/Demande/showDemandes.html.twig" afterPath="$PROJECT_DIR$/src/AppBundle/Resources/views/Demande/showDemandes.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/Style.js" afterPath="$PROJECT_DIR$/web/Style.js" />
     </list>
     <ignored path="Workshop.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -35,21 +36,31 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="membre.html.twig" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/Compte/membre.html.twig">
+      <file leaf-file-name="showDemandes.html.twig" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/Demande/showDemandes.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-20.923077">
-              <caret line="81" column="30" selection-start-line="81" selection-start-column="30" selection-end-line="81" selection-end-column="30" />
+            <state vertical-scroll-proportion="0.6260069">
+              <caret line="39" column="128" selection-start-line="39" selection-start-column="128" selection-end-line="39" selection-end-column="128" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="showDemandeRepondre.html.twig" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Style.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/Style.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="44" column="3" selection-start-line="44" selection-start-column="3" selection-end-line="44" selection-end-column="3" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="showDemandeRepondre.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/Demande/showDemandeRepondre.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.9390104">
-              <caret line="104" column="23" selection-start-line="104" selection-start-column="23" selection-end-line="104" selection-end-column="23" />
+            <state vertical-scroll-proportion="-37.26923">
+              <caret line="71" column="40" selection-start-line="71" selection-start-column="40" selection-end-line="71" selection-end-column="40" />
               <folding />
             </state>
           </provider>
@@ -103,18 +114,19 @@
         <option value="$USER_HOME$/Desktop/Worskshop Old/WorkshopSix/Vue_Accueil.html" />
         <option value="$PROJECT_DIR$/src/AppBundle/Resources/views/Accueil/index.html.twig" />
         <option value="$PROJECT_DIR$/src/AppBundle/Resources/views/Compte/compte.html.twig" />
-        <option value="$PROJECT_DIR$/src/AppBundle/Resources/views/Compte/membre.html.twig" />
         <option value="$PROJECT_DIR$/src/AppBundle/Resources/views/Compte/admin.html.twig" />
         <option value="$PROJECT_DIR$/src/AppBundle/Resources/views/Compte/inscription.html.twig" />
         <option value="$PROJECT_DIR$/src/AppBundle/Resources/views/Compte/profil.html.twig" />
         <option value="$PROJECT_DIR$/src/AppBundle/Resources/views/Demande/AjoutDemande.html.twig" />
         <option value="$PROJECT_DIR$/src/AppBundle/Resources/views/Demande/showDemande.html.twig" />
-        <option value="$PROJECT_DIR$/src/AppBundle/Resources/views/Demande/showDemandes.html.twig" />
         <option value="$PROJECT_DIR$/src/AppBundle/Resources/views/Proposition/showProposition.html.twig" />
         <option value="$PROJECT_DIR$/src/AppBundle/Resources/views/Proposition/showPropositions.html.twig" />
         <option value="$PROJECT_DIR$/src/AppBundle/Resources/views/Proposition/showPropositionText.html.twig" />
         <option value="$PROJECT_DIR$/web/Style.css" />
         <option value="$PROJECT_DIR$/src/AppBundle/Resources/views/Demande/showDemandeRepondre.html.twig" />
+        <option value="$PROJECT_DIR$/web/Style.js" />
+        <option value="$PROJECT_DIR$/src/AppBundle/Resources/views/Compte/membre.html.twig" />
+        <option value="$PROJECT_DIR$/src/AppBundle/Resources/views/Demande/showDemandes.html.twig" />
       </list>
     </option>
   </component>
@@ -366,7 +378,7 @@
     <option name="totallyTimeSpent" value="36675000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="0" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="1" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16684435" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -652,14 +664,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/Style.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/Compte/profil.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33256617">
@@ -677,14 +681,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/Demande/showDemande.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3521289">
-          <caret line="18" column="27" selection-start-line="18" selection-start-column="27" selection-end-line="18" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/Demande/showDemandes.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.3521289">
           <caret line="18" column="27" selection-start-line="18" selection-start-column="27" selection-end-line="18" selection-end-column="27" />
@@ -732,6 +728,30 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/Demande/showDemandeRepondre.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-37.26923">
+          <caret line="71" column="40" selection-start-line="71" selection-start-column="40" selection-end-line="71" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/Style.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="44" column="3" selection-start-line="44" selection-start-column="3" selection-end-line="44" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/Compte/membre.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.547756">
+          <caret line="42" column="14" selection-start-line="42" selection-start-column="14" selection-end-line="42" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/Accueil/index.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-12.423077">
@@ -740,18 +760,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/Compte/membre.html.twig">
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/Demande/showDemandes.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-20.923077">
-          <caret line="81" column="30" selection-start-line="81" selection-start-column="30" selection-end-line="81" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/Demande/showDemandeRepondre.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.9390104">
-          <caret line="104" column="23" selection-start-line="104" selection-start-column="23" selection-end-line="104" selection-end-column="23" />
+        <state vertical-scroll-proportion="0.6260069">
+          <caret line="39" column="128" selection-start-line="39" selection-start-column="128" selection-end-line="39" selection-end-column="128" />
           <folding />
         </state>
       </provider>

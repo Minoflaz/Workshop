@@ -1,4 +1,3 @@
-
 $(document).ready(function(){
 
     $("#sel1").change(function() {

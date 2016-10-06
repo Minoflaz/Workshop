@@ -55,20 +55,15 @@
             <div id="collapse1" class="panel-collapse collapse">
                 </br>
 
-                    <div class="form-group">
+                <div class="form-group">
 
                     <textarea readonly class="form-control" name="texte" rows="10" id="proposition" placeholder="Exemple de demande !!!!!">
                         {{ proposition.texte }}
                     </textarea>
 
-                    </div></br>
+                </div></br>
 
-                    <form action="{{ path('validerProposition', {'idProposition': proposition.id}) }}">
-                        <button type="submit" name="accepter" class="btn btn-default">Accepter</button>
-                    </form>
-                    <form action="{{ path('membre') }}">
-                        <input type="submit" value="Mes demandes" />
-                    </form>
+
 
 
             </div>

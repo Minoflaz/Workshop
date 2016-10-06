@@ -41,6 +41,10 @@ showProposition:
     path: /showProposition/{idProposition}
     defaults: {_controller: AppBundle:Default:showProposition}
 
+showPropositionText:
+    path: /showPropositionText/{idProposition}
+    defaults: {_controller: AppBundle:Default:showPropositionText}
+
 validerProposition:
     path: /validerProposition/{idProposition}
     defaults: {_controller: AppBundle:Default:validerProposition}

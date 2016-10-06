@@ -116,11 +116,22 @@
 
                 {% for proposition in propositions %}
 
-                    <tr><td><a href="{{ path('showProposition', {"idProposition": proposition.id}) }}">{{ proposition.demande.titre }}</a></td>
+                    <tr><td><a href="{{ path('showPropositionText', {"idProposition": proposition.id}) }}">{{ proposition.demande.titre }}</a></td>
                         <td><a href="{{ path('profil', {"idPersonne": proposition.demande.personne.id}) }}">{{ proposition.demande.personne.username }}</a></td>
                         <td>{{ proposition.demande.personne.ville }}</td>
 
-                        <td>attente</td>
+                        <td>
+                            {% if proposition.statut %}
+
+                                Acceptée
+
+                            {% else %}
+
+                                En attente
+
+                            {% endif %}
+
+                        </td>
 
                     </tr>
 

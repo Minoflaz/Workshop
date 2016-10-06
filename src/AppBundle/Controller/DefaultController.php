@@ -6,6 +6,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use AppBundle\Model\FakeBoolean;
+use Doctrine\Common\Collections\ArrayCollection;
 
 class DefaultController extends Controller
 {
@@ -98,6 +99,7 @@ class DefaultController extends Controller
 
         $propositions = $demande->getPropositions();
 
+
         return $this->render('AppBundle:Proposition:showPropositions.html.twig',array(
             'user'=> $this->getUser(),
             'demande'=> $demande,
@@ -121,6 +123,21 @@ class DefaultController extends Controller
         ));
     }
 
+    public function showPropositionTextAction(Request $request,$idProposition) {
+
+        if($this->getUser() == null) {
+            return $this->redirectToRoute('login');
+        }
+
+
+        $proposition = $this->getDoctrine()->getRepository('AppBundle:proposition')->findOneById($idProposition);
+
+        return $this->render('AppBundle:Proposition:showPropositionText.html.twig',array(
+            'user'=> $this->getUser(),
+            'proposition'=> $proposition,
+        ));
+    }
+
     public function validerPropositionAction(Request $request,$idProposition) {
 
         if($this->getUser() == null) {
@@ -129,10 +146,92 @@ class DefaultController extends Controller
 
         $proposition = $this->getDoctrine()->getRepository('AppBundle:proposition')->findOneById($idProposition);
 
+
+        $em = $this->getDoctrine()->getManager();
+
         $proposition->setStatut(true);
+
+        $em->flush();
+
+        $statut = $proposition->isStatut();
+
 
         return $this->redirectToRoute('membre');
 
     }
+
+    public function adminAction(Request $request) {
+
+        if($this->getUser() == null) {
+            return $this->redirectToRoute('login');
+        }
+
+
+        $this->denyAccessUnlessGranted('ROLE_ADMIN', null, 'Il faut être admin pour acceder a cette section !');
+
+
+        $personnes = $this->getDoctrine()->getRepository('AppBundle:personne')->findAll();
+
+        $demandes = $this->getDoctrine()->getRepository('AppBundle:demande')->findAll();
+
+        $propositions = $this->getDoctrine()->getRepository('AppBundle:proposition')->findAll();
+
+
+        return $this->render('AppBundle:Proposition:showProposition.html.twig',array(
+            'user'=> $this->getUser(),
+            'personnes'=> $personnes,
+            'propositions'=> $propositions,
+            'demandes' => $demandes,
+        ));
+    }
+
+    public function deleteAction(Request $request,$type,$id) {
+
+        if($this->getUser() == null) {
+            return $this->redirectToRoute('login');
+        }
+
+
+        $this->denyAccessUnlessGranted('ROLE_ADMIN', null, 'Il faut être admin pour acceder a cette section !');
+
+        $personne = null;
+        $demande = null;
+        $proposition = null;
+
+        if($type=="personne") {
+
+            $personne= $this->getDoctrine()->getRepository('AppBundle:personne')->findOneById($id);
+
+            $em = $this->getDoctrine()->getManager();
+
+            $em->remove($personne);
+            $em->flush();
+        }
+
+        elseif ($type=="demande") {
+
+            $demande= $this->getDoctrine()->getRepository('AppBundle:demande')->findOneById($id);
+
+            $em = $this->getDoctrine()->getManager();
+
+            $em->remove($demande);
+            $em->flush();
+        }
+
+        elseif ($type=="proposition") {
+
+            $proposition = $this->getDoctrine()->getRepository('AppBundle:proposition')->findOneById($id);
+
+            $em = $this->getDoctrine()->getManager();
+
+            $em->remove($proposition);
+            $em->flush();
+        }
+
+        return $this->redirectToRoute('membre');
+    }
+
+
+
 
 }

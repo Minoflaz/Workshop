@@ -40,3 +40,5 @@ security:
             logout:
                 path:   /logout
                 target: /
+
+

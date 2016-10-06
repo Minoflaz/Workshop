@@ -1,5 +1,5 @@
 
-  
+
   body {
       font: 400 15px/1.8 Lato, sans-serif;
       color: #777;
@@ -13,7 +13,7 @@
 
   .business-header {
       height: 400px;
-      background: url('http://placehold.it/1920x400') center center no-repeat scroll;
+      background: url('Images/helpA.jpg') center center no-repeat scroll;
       -webkit-background-size: cover;
       -moz-background-size: cover;
       background-size: cover;

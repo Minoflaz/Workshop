@@ -71,7 +71,7 @@
 
                         <tr><td>{{ proposition.titre }}</td>
                             <td>{{ proposition.texte[:30] }}...</td>
-                            <td>{{ proposition.personne.ville }}</td>
+                            <td><a href="{{ path('profil', {"idPersonne": proposition.personne.id}) }}">{{ proposition.personne.username }}</a></td>
 
                             <td><button id="btdem" type="button" class="btn btn-primary btn-circle" data-toggle="tooltip" data-placement="top" title="Accèder à cette proposition" onclick="location.href = '{{ path('showProposition', {"idProposition": proposition.id}) }}'"><i class="glyphicon glyphicon-eye-open"></i></button></td>
 

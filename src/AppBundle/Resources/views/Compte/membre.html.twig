@@ -116,7 +116,7 @@
 
                 {% for proposition in propositions %}
 
-                    <tr><td><a href="{{ path('showProposition', {"id": proposition.id}) }}">{{ proposition.demande.titre }}</a></td>
+                    <tr><td><a href="{{ path('showProposition', {"idProposition": proposition.id}) }}">{{ proposition.demande.titre }}</a></td>
                         <td><a href="{{ path('profil', {"idPersonne": proposition.demande.personne.id}) }}">{{ proposition.demande.personne.username }}</a></td>
                         <td>{{ proposition.demande.personne.ville }}</td>
 
